@@ -1,0 +1,28 @@
+const SIDEBAR_CONFIG = [
+  {
+    section: "Introduction",
+    items: [
+      { title: "About me :)", path: "posts/topic/intro.md" },
+    ]
+  },
+  {
+    section: "Notes",
+    items: [
+      { title: "Linux Privilege Escalation", path: "posts/topic/linux-privilege-escalation.md" },
+      { title: "Windows Privilege Escalation", path: "posts/topic/windows-privilege-escalation.md" }
+    ]
+  },
+  {
+    section: "TryHackMe Writeups",
+    items: [
+      { title: "Simple CTF", path: "posts/tryhackme/simplectf.md" },
+      { title: "Basic Pentesting", path: "posts/tryhackme/basic-pentesting.md" },
+      { title: "Lo-Fi", path: "posts/tryhackme/lo-fi.md" },
+      { title: "Plotted-TMS", path: "posts/tryhackme/plotted-tms.md" }
+    ]
+  }
+];
+
+if (typeof module !== "undefined") {
+  module.exports = SIDEBAR_CONFIG;
+}
