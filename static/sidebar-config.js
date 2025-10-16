@@ -13,6 +13,12 @@ const SIDEBAR_CONFIG = [
     ]
   },
   {
+    section: "Websecurity",
+    items: [
+      { title: "Information Gathering", path: "posts/websecurity/recon.md" },
+    ]
+  },
+  {
     section: "TryHackMe Writeups",
     items: [
       { title: "Simple CTF", path: "posts/tryhackme/simplectf.md" },
