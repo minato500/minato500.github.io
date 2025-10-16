@@ -1,6 +1,11 @@
-# About Me
+<div align="center">
 
-Hey, I am **Minato500** — a cybersecurity enthusiast, CTF player, and curious hacker.  
+# Hello , I'm **Minato500** :)
+
+### Cybersecurity Researcher | CTF Player | Ethical Hacker
+
+</div>
+
 I am passionate about **web exploitation**, **red teaming**, and **web security**.
 
 Over the past couple of years, I have been:
@@ -14,25 +19,32 @@ Over the past couple of years, I have been:
 - Become a top-tier **penetration tester**
 - Share writeups and resources with the infosec community
 
-### Certifications
- 
-- Practical Ethical Hacking - TCM Security
-- Practical Web Hacking - TCM Security
-- Practical Bug Bounty - TCM Security
-- Practical API Hacking - TCM Security
-- The Complete Linux and Windows Privilege Escalation - Coursera
+## Certifications & Training
 
-### Achievements
+<div>
 
-- **1st place** in ExploitX-CTF conducted by KPR Institute of Engineering and Technology
-- **1st place** in KICTF conducted by Kumaraguru College of Engineering
-- **2nd place** in ACNCTF conducted by Amrita University
-- **Top 4 percent** in TryHackMe plateform 
+- **Practical Ethical Hacking** — TCM Security
+- **Practical Web Hacking** — TCM Security  
+- **Practical Bug Bounty** — TCM Security
+- **Practical API Hacking** — TCM Security
+- **Complete Linux & Windows Privilege Escalation** — Coursera
 
-### Connect with Me
-
-- [GitHub](https://github.com/minato500)
-- [LinkedIn](https://linkedin.com/in/harish-kumar-n50)
+</div>
 
 
-> _“Hacking is not about breaking things, it's about understanding how they work.”_
+## 🤝 Let's Connect
+
+<div align="center">
+
+[GitHub](https://github.com/minato500)
+[LinkedIn](https://linkedin.com/in/harish-kumar-n50)
+[TryHackMe](https://tryhackme.com/p/minato500)
+
+</div>
+
+<div align="center">
+
+### 💬 *I'm always open to:*
+`Collaborating on Projects` • `Discussing Security Topics` • `Sharing CTF Experiences` • `Mentoring Beginners`
+
+</div>
