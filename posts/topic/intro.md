@@ -45,6 +45,6 @@ Over the past couple of years, I have been:
 <div align="center">
 
 ### 💬 *I'm always open to:*
-`Collaborating on Projects` • `Discussing Security Topics` • `Sharing CTF Experiences` • `Mentoring Beginners`
+`Collaborating on Projects` • `Discussing Security Topics` • `Sharing CTF Experiences`
 
 </div>
