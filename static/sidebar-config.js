@@ -13,6 +13,12 @@ const SIDEBAR_CONFIG = [
     ]
   },
   {
+    section: "Red Teaming",
+    items: [
+      { title: "AS-REP Roasting", path: "posts/redteaming/asreproasting.md" },
+    ]
+  },
+  {
     section: "Websecurity",
     items: [
       { title: "Information Gathering", path: "posts/websecurity/recon.md" },

@@ -1,6 +1,6 @@
 # Windows Privilege Escalation
 
-Here I have attached my notes to understand the windows privilege escalation so some of this like attacker-victim simulations
+Here I have attached my notes to understand the windows privilege escalation so some of this looks like attacker-victim simulations
 
 ## Gaining a Foothold
 
