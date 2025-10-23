@@ -9,7 +9,8 @@ const SIDEBAR_CONFIG = [
     section: "Notes",
     items: [
       { title: "Linux Privilege Escalation", path: "posts/topic/linux-privilege-escalation.md" },
-      { title: "Windows Privilege Escalation", path: "posts/topic/windows-privilege-escalation.md" }
+      { title: "Windows Privilege Escalation", path: "posts/topic/windows-privilege-escalation.md" },
+      { title: "Pwntools", path: "posts/topic/pwntools.md" }
     ]
   },
   {
