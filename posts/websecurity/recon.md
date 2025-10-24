@@ -106,5 +106,5 @@ The website used for valid email address hunting in an application:
 - [voilanorbert](https://www.voilanorbert.com/)
 - [tools.verifyemailaddress.io](https://tools.emailhippo.com/) - to verify that the email address is exist
 - [email checker](email-checker.net/validate)
-- we can also use forgot password option in web application to validate email but it could make them to be voilanorbert
+- we can also use forgot password option in web application to validate email but it could make them to be notify
 
