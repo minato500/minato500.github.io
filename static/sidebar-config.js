@@ -17,7 +17,8 @@ const SIDEBAR_CONFIG = [
     section: "Red Teaming",
     items: [
       { title: "AS-REP Roasting", path: "posts/redteaming/asreproasting.md" },
-      { title: "Kerberoasting", path: "posts/redteaming/kerberoasting.md" }
+      { title: "Kerberoasting", path: "posts/redteaming/kerberoasting.md" },
+      { title: "Password Spraying", path: "posts/redteaming/password-spraying.md" }
     ]
   },
   {
