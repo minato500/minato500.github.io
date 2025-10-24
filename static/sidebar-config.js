@@ -18,6 +18,7 @@ const SIDEBAR_CONFIG = [
     items: [
       { title: "AS-REP Roasting", path: "posts/redteaming/asreproasting.md" },
       { title: "Kerberoasting", path: "posts/redteaming/kerberoasting.md" },
+      { title: "Kerberoasting - Silver Ticket", path: "posts/redteaming/kerberoasting_silver.md" },
       { title: "Password Spraying", path: "posts/redteaming/password-spraying.md" }
     ]
   },
