@@ -6,7 +6,7 @@
 
 </div>
 
-I am passionate about **web exploitation**, **red teaming**, and **web security**.
+I am passionate about **web exploitation**, **red teaming**, and **web security** and here I have been sharing my note.
 
 Over the past couple of years, I have been:
 

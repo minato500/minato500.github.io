@@ -16,6 +16,9 @@ const SIDEBAR_CONFIG = [
   {
     section: "Red Teaming",
     items: [
+      { title: "Active Directory", path: "posts/redteaming/active-directory.md" },
+      { title: "Active Directory - PowerShell" , path: "posts/redteaming/powershell.md"},
+      { title: "Domain Enumeration" , path: "posts/redteaming/domain-enumeration.md"},
       { title: "AS-REP Roasting", path: "posts/redteaming/asreproasting.md" },
       { title: "Kerberoasting", path: "posts/redteaming/kerberoasting.md" },
       { title: "Kerberoasting - Silver Ticket", path: "posts/redteaming/kerberoasting_silver.md" },

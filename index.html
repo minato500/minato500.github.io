@@ -6,29 +6,71 @@
   <title>minato500</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" integrity="sha384-wH75j6z1lH97ZOpMOInqhgKzFkAInZPPSPlZpYKYTOqsaizPvhQZmAtLcPKXpLyH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" integrity="sha384-948ahk4ZmxYVYOc+rxN1H2gM1EJ2Duhp7uHtZ4WSLkV4Vtx5MUqnV+l7u9B+jFv+" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="static/style.css" />
 </head>
 <body>
+  <div class="background-effects">
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+  </div>
+
   <header class="site-header">
     <div class="site-brand">
-      <div class="logo">minato500</div>
+      <div class="logo">
+        <span class="logo-icon"><i class="fas fa-terminal"></i></span>
+        <span class="logo-text">minato<span class="logo-accent">500</span></span>
+      </div>
+      <div class="tagline">Security Researcher & CTF player</div>
     </div>
     <div class="header-actions">
-      <input id="search" placeholder="Search topics..." aria-label="Search topics" />
+      <div class="search-wrapper">
+        <i class="fas fa-search search-icon"></i>
+        <input id="search" placeholder="Search topics..." aria-label="Search topics" />
+        <kbd class="search-shortcut">⌘K</kbd>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark mode">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+      </button>
+      <a href="https://github.com/minato500" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
     </div>
   </header>
 
+  <button class="mobile-menu-toggle" aria-label="Toggle menu">
+    <i class="fas fa-bars"></i>
+  </button>
+
   <main class="layout">
     <aside id="sidebar" class="sidebar">
-      <div><ul id="md-list" class="topic-list"></ul></div>
+      <div class="sidebar-inner">
+        <ul id="md-list" class="topic-list"></ul>
+      </div>
     </aside>
 
     <section id="content" class="content">
       <article class="welcome">
-        
+        <div class="welcome-hero">
+          <div class="hero-badge">👋 Welcome</div>
+          <h1 class="hero-title">Security Notes & <span class="gradient-text">CTF Writeups</span></h1>
+          <p class="hero-description">Explore my collection of security research, penetration testing notes, and capture the flag writeups.</p>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number" id="total-posts">0</span>
+              <span class="stat-label">Articles</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" id="total-categories">0</span>
+              <span class="stat-label">Categories</span>
+            </div>
+          </div>
+        </div>
       </article>
     </section>
   </main>
