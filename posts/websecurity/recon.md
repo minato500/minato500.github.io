@@ -108,3 +108,10 @@ The website used for valid email address hunting in an application:
 - [email checker](email-checker.net/validate)
 - we can also use forgot password option in web application to validate email but it could make them to be notify
 
+## OSINT
+
+Open Source Intelligence (OSINT) from an ethical hacking perspective involves the collection and analysis of information that is publicly available to identify vulnerabilities, gather data about targets, or understand the security posture of an organization
+
+- [shodan.io](https://www.shodan.io/)
+- [https://www.greynoise.io/](https://www.greynoise.io/)
+- [google hacking database](https://www.exploit-db.com/google-hacking-database)
