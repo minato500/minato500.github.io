@@ -55,11 +55,11 @@ function getItemIcon(title) {
   if (lowerTitle.includes('windows')) return 'fab fa-windows';
   if (lowerTitle.includes('active directory') || lowerTitle.includes('domain') || (lowerTitle.includes('ntlm')) || (lowerTitle.includes('inveigh'))) return 'fas fa-network-wired';
   if (lowerTitle.includes('powershell')) return 'fas fa-terminal';
-  if (lowerTitle.includes('kerberos') || lowerTitle.includes('roasting')) return 'fas fa-key';
-  if (lowerTitle.includes('password')) return 'fas fa-lock';
+  if (lowerTitle.includes('kerberos') || lowerTitle.includes('roasting') || lowerTitle.includes('gain')) return 'fas fa-key';
+  if (lowerTitle.includes('password')|| lowerTitle.includes('identification')) return 'fas fa-lock';
   if (lowerTitle.includes('privilege') || lowerTitle.includes('escalation')) return 'fas fa-arrow-up';
   if (lowerTitle.includes('about') || lowerTitle.includes('intro')) return 'fas fa-circle-info';
-  if (lowerTitle.includes('recon') || lowerTitle.includes('gathering')) return 'fas fa-magnifying-glass';
+  if (lowerTitle.includes('recon') || lowerTitle.includes('gathering') || lowerTitle.includes('scan')) return 'fas fa-magnifying-glass';
   if (lowerTitle.includes('pwn')) return 'fas fa-code';
   return 'fas fa-file-code';
 }

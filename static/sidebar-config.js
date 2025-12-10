@@ -31,6 +31,9 @@ const SIDEBAR_CONFIG = [
     section: "Websecurity",
     items: [
       { title: "Information Gathering", path: "posts/websecurity/recon.md" },
+      { title: "Scanning and Enumeration", path: "posts/websecurity/scanning-and-enumeration.md" },
+      { title: "Vulnerability Identification", path: "posts/websecurity/vulnerability-identification.md" },
+      { title: "Gaining Access", path: "posts/websecurity/gaining-access.md" }
     ]
   },
   {
