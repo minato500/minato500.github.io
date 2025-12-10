@@ -23,6 +23,7 @@ const SIDEBAR_CONFIG = [
       { title: "Kerberoasting", path: "posts/redteaming/kerberoasting.md" },
       { title: "Kerberoasting - Silver Ticket", path: "posts/redteaming/kerberoasting_silver.md" },
       { title: "NTLM Relay Attack", path: "posts/redteaming/ntlm-relay-attack.md" },
+      { title: "Inveigh", path: "posts/redteaming/inveigh.md" },
       { title: "Password Spraying", path: "posts/redteaming/password-spraying.md" }
     ]
   },
