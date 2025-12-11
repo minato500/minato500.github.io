@@ -37,6 +37,12 @@ const SIDEBAR_CONFIG = [
     ]
   },
   {
+    section: "API Hacking",
+    items: [
+      { title: "Introduction to API", path: "posts/api-hacking/intro-to-api.md"}
+    ]
+  },
+  {
     section: "TryHackMe Writeups",
     items: [
       { title: "Simple CTF", path: "posts/tryhackme/simplectf.md" },

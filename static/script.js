@@ -3,6 +3,7 @@ const SECTION_ICONS = {
   'Notes': 'fa-book',
   'Red Teaming': 'fa-crosshairs',
   'Websecurity': 'fa-shield-halved',
+  'API Hacking': 'fa-plug',
   'TryHackMe Writeups': 'fa-flag',
   'default': 'fa-file-lines'
 };
@@ -61,6 +62,7 @@ function getItemIcon(title) {
   if (lowerTitle.includes('about') || lowerTitle.includes('intro')) return 'fas fa-circle-info';
   if (lowerTitle.includes('recon') || lowerTitle.includes('gathering') || lowerTitle.includes('scan')) return 'fas fa-magnifying-glass';
   if (lowerTitle.includes('pwn')) return 'fas fa-code';
+  if (lowerTitle.includes('api')) return 'fas fa-plug';
   return 'fas fa-file-code';
 }
 
