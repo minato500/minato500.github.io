@@ -40,7 +40,8 @@ const SIDEBAR_CONFIG = [
     section: "API Hacking",
     items: [
       { title: "Introduction to API", path: "posts/api-hacking/intro-to-api.md"},
-      { title: "Broken Object Level Authorization", path: "posts/api-hacking/broken-object-level-authorization.md"}
+      { title: "Broken Object Level Authorization", path: "posts/api-hacking/broken-object-level-authorization.md"},
+      { title: "Broken Function Level Authorization", path: "posts/api-hacking/broken-function-level-authorization.md"}
     ]
   },
   {

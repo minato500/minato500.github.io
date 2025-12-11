@@ -9,13 +9,15 @@
 - In many real world cases,developers leave internal API documentation (such as Swagger,OpenAPI specs,or Postman collections) exposed on production servers. These documents often contain complete maps of the API endpoints,including request/response structures
 - In our lab scenario, such documentation was exposed, revealing all available API routes. This significantly reduced the effort required to identify vulnerable endpoints and understand how the application manages resources
 
+`Here the API docs are made easier for the lab`
+
 ![image](../../static/images/api3.png)
 
 Here in `Lab application BOLA vulnerability` exists in /api/v1/users/<id> Endpoint
 
 ![image](../../static/images/api4.png)
 
-- The endpoint allows retrieval of user information by supplying a user identifier.The application does not verify whether the requester has permission to access the specific user object. Although the user IDs appear strong,another vulnerability (BFLA – Broken Function Level Authorization) allowed us to enumerate all user IDs which we will discuss in the next module
+- The endpoint allows retrieval of user information by supplying a user identifier.The application does not verify whether the requester has permission to access the specific user object. Although the user IDs appear strong,another vulnerability (BFLA – Broken Function Level Authorization) allowed us to enumerate all user IDs which is the functionality for the admin we will discuss in the next module
 - As a result,by sending requests with these discovered IDs through Burp Suite,we could access highly sensitive information belonging to other users
 
 The exposed data included:
