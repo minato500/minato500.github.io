@@ -62,7 +62,7 @@ function getItemIcon(title) {
   if (lowerTitle.includes('about') || lowerTitle.includes('intro')) return 'fas fa-circle-info';
   if (lowerTitle.includes('recon') || lowerTitle.includes('gathering') || lowerTitle.includes('scan')) return 'fas fa-magnifying-glass';
   if (lowerTitle.includes('pwn')) return 'fas fa-code';
-  if (lowerTitle.includes('api') || lowerTitle.includes('broken')) return 'fas fa-plug';
+  if (lowerTitle.includes('api') || lowerTitle.includes('broken') || lowerTitle.includes('mass')) return 'fas fa-plug';
   return 'fas fa-file-code';
 }
 
