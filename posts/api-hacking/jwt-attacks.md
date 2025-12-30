@@ -66,3 +66,21 @@ Now we can login with the token as admin, these token can also make as to access
 ![image](../../static/images/api15.png)
 
 ![image](../../static/images/api16.png)
+
+## JWT Algorithm None 
+
+Some time the application does not check the signature based on the header algorithm in JWT token based on that the attacker can exploit it by using none algorithm which doesn't check the signature. Here after changing the alogorithm to none in JWT header remove the signature and pass the token this makes the token as valid
+
+Changing the header to {"alg": "none", "typ": "JWT"}
+
+Step 1 : Get the valid token 
+
+![image](../../static/images/api17.png)
+
+Step 2 : Change the role as admin and change the algorithm it makes the token as valid with admin access (In burpsuite JSON web token extension is useful)
+
+![image](../../static/images/api18.png)
+
+## JWT Privilege Escalation
+
+it is the same as the JWT Weak Secret only the endpoints differs
