@@ -43,7 +43,8 @@ const SIDEBAR_CONFIG = [
       { title: "Broken Object Level Authorization", path: "posts/api-hacking/broken-object-level-authorization.md"},
       { title: "Broken Function Level Authorization", path: "posts/api-hacking/broken-function-level-authorization.md"},
       { title: "Mass assignment", path: "posts/api-hacking/mass-assignment.md"},
-      { title: "Brute Force Attack", path: "posts/api-hacking/brute-force.md"}
+      { title: "Brute Force Attack", path: "posts/api-hacking/brute-force.md"},
+      { title: "JWT Attacks", path: "posts/api-hacking/jwt-attacks.md"}
     ]
   },
   {
