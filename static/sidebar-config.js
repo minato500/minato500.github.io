@@ -47,7 +47,8 @@ const SIDEBAR_CONFIG = [
       { title: "JWT Attacks", path: "posts/api-hacking/jwt-attacks.md"},
       { title: "SQL Injection", path: "posts/api-hacking/sqli.md"},
       { title: "NoSQL Injection", path: "posts/api-hacking/no-sqli.md"},
-      { title: "Authentication Bypass", path: "posts/api-hacking/authentication-bypass.md"}
+      { title: "Authentication Bypass", path: "posts/api-hacking/authentication-bypass.md"},
+      { title: "Excessive Data Exposure", path: "posts/api-hacking/excessive-data-exposure.md"}
     ]
   },
   {
