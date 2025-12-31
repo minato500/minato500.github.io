@@ -45,7 +45,8 @@ const SIDEBAR_CONFIG = [
       { title: "Mass assignment", path: "posts/api-hacking/mass-assignment.md"},
       { title: "Brute Force Attack", path: "posts/api-hacking/brute-force.md"},
       { title: "JWT Attacks", path: "posts/api-hacking/jwt-attacks.md"},
-      { title: "SQL Injection", path: "posts/api-hacking/sqli.md"}
+      { title: "SQL Injection", path: "posts/api-hacking/sqli.md"},
+      { title: "NoSQL Injection", path: "posts/api-hacking/no-sqli.md"}
     ]
   },
   {
