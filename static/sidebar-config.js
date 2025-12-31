@@ -40,6 +40,7 @@ const SIDEBAR_CONFIG = [
     section: "API Hacking",
     items: [
       { title: "Introduction to API", path: "posts/api-hacking/intro-to-api.md"},
+      { title: "Lab Setup", path: "posts/api-hacking/lab-setup.md"},
       { title: "Broken Object Level Authorization", path: "posts/api-hacking/broken-object-level-authorization.md"},
       { title: "Broken Function Level Authorization", path: "posts/api-hacking/broken-function-level-authorization.md"},
       { title: "Mass assignment", path: "posts/api-hacking/mass-assignment.md"},
@@ -48,7 +49,10 @@ const SIDEBAR_CONFIG = [
       { title: "SQL Injection", path: "posts/api-hacking/sqli.md"},
       { title: "NoSQL Injection", path: "posts/api-hacking/no-sqli.md"},
       { title: "Authentication Bypass", path: "posts/api-hacking/authentication-bypass.md"},
-      { title: "Excessive Data Exposure", path: "posts/api-hacking/excessive-data-exposure.md"}
+      { title: "Excessive Data Exposure", path: "posts/api-hacking/excessive-data-exposure.md"},
+      { title: "Server Side Request Forgery", path: "posts/api-hacking/server-side-request-forgery.md"},
+      { title: "Command Injection", path: "posts/api-hacking/command-injection.md"},
+      { title: "Chain of Vulnerabilities", path: "posts/api-hacking/chain-of-vulnerabilities.md"}
     ]
   },
   {

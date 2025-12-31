@@ -55,7 +55,7 @@ function getItemIcon(title) {
   if (lowerTitle.includes('linux')) return 'fab fa-linux';
   if (lowerTitle.includes('windows')) return 'fab fa-windows';
   if (lowerTitle.includes('active directory') || lowerTitle.includes('domain') || (lowerTitle.includes('ntlm')) || (lowerTitle.includes('inveigh'))) return 'fas fa-network-wired';
-  if (lowerTitle.includes('powershell')) return 'fas fa-terminal';
+  if (lowerTitle.includes('powershell') || lowerTitle.includes('server') || lowerTitle.includes('lab')) return 'fas fa-terminal';
   if (lowerTitle.includes('kerberos') || lowerTitle.includes('roasting') || lowerTitle.includes('gain')) return 'fas fa-key';
   if (lowerTitle.includes('password')|| lowerTitle.includes('identification')) return 'fas fa-lock';
   if (lowerTitle.includes('privilege') || lowerTitle.includes('escalation')) return 'fas fa-arrow-up';
