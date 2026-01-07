@@ -56,6 +56,12 @@ const SIDEBAR_CONFIG = [
     ]
   },
   {
+    section: "CTF",
+    items: [
+      { title: "EnigmaCTF 2026", path: "posts/ctf/enigma-ctf-2026.md" }
+    ]
+  },
+  {
     section: "TryHackMe Writeups",
     items: [
       { title: "Simple CTF", path: "posts/tryhackme/simplectf.md" },
