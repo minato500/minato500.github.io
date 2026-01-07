@@ -852,12 +852,19 @@ pre:hover .copy-btn {
   max-width: 100%; 
   height: auto;        
   display: block;        
-  margin: 24px 0;   
+  margin: 24px auto;
   border-radius: var(--radius-md);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-md);
   cursor: zoom-in;
   transition: all var(--transition-normal);
+}
+
+/* Desktop: Center and medium size images */
+@media (min-width: 768px) {
+  .content img {
+    max-width: 80%;
+  }
 }
 
 .content img:hover {
