@@ -67,6 +67,136 @@ function getItemIcon(title) {
   return 'fas fa-file-code';
 }
 
+function generateTableOfContents() {
+  const contentEl = document.getElementById('content');
+  const rightTocList = document.getElementById('right-toc-list');
+  const headings = contentEl.querySelectorAll('h1, h2, h3, h4, h5, h6');
+  
+  if (headings.length === 0) {
+    hideRightToc();
+    return;
+  } else {
+    // Right TOC should already be shown when viewing a post
+    // (showRightToc() is called in loadMarkdown)
+  }
+  
+  const tocItems = Array.from(headings).map((heading, index) => {
+    const level = parseInt(heading.tagName.charAt(1));
+    const text = heading.textContent.trim();
+    const id = `toc-${index}`;
+    heading.id = id;
+    
+    const icon = level === 1 ? 'fas fa-bookmark' : 
+                 level === 2 ? 'fas fa-chevron-right' : 
+                 level === 3 ? 'fas fa-angle-right' : 'fas fa-circle';
+    
+    return `
+      <li class="content-toc-item" data-level="${level}">
+        <a href="#${id}" class="content-toc-link" data-level="${level}">
+          <span>${text}</span>
+        </a>
+      </li>
+    `;
+  }).join('');
+  
+  if (rightTocList) {
+    rightTocList.innerHTML = tocItems;
+  }
+  
+  const tocHTML = `
+    <div class="content-toc">
+      <div class="content-toc-header">
+        <h3><i class="fas fa-list"></i> Table of Contents</h3>
+      </div>
+      <ul class="content-toc-list">
+        ${tocItems}
+      </ul>
+    </div>
+  `;
+  
+  const existingToc = contentEl.querySelector('.content-toc');
+  if (existingToc) {
+    existingToc.remove();
+  }
+  
+  const firstHeading = contentEl.querySelector('h1');
+  if (firstHeading) {
+    firstHeading.insertAdjacentHTML('afterend', tocHTML);
+  } else {
+    contentEl.insertAdjacentHTML('afterbegin', tocHTML);
+  }
+  
+  const allTocLinks = document.querySelectorAll('.content-toc-link');
+  allTocLinks.forEach(tocLink => {
+    tocLink.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelectorAll('.content-toc-link').forEach(link => link.classList.remove('active'));
+      const href = tocLink.getAttribute('href');
+      document.querySelectorAll(`.content-toc-link[href="${href}"]`).forEach(link => link.classList.add('active'));
+      const targetId = href.substring(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start',
+          inline: 'nearest'
+        });
+      }
+    });
+  });
+  setupScrollSpy();
+}
+
+function setupScrollSpy() {
+  const contentEl = document.getElementById('content');
+  let ticking = false;
+
+  function updateActiveHeading() {
+    const headings = Array.from(contentEl.querySelectorAll('h1, h2, h3, h4, h5, h6')).filter(h => h.id);
+    const scrollTop = contentEl.scrollTop;
+    const contentHeight = contentEl.scrollHeight - contentEl.clientHeight;
+    
+    if (scrollTop >= contentHeight - 50) {
+      const lastHeading = headings[headings.length - 1];
+      if (lastHeading) {
+        document.querySelectorAll('.content-toc-link').forEach(link => link.classList.remove('active'));
+        const lastHref = `#${lastHeading.id}`;
+        document.querySelectorAll(`.content-toc-link[href="${lastHref}"]`).forEach(link => link.classList.add('active'));
+      }
+      return;
+    }
+
+    let activeHeading = null;
+    
+    for (let i = headings.length - 1; i >= 0; i--) {
+      const heading = headings[i];
+      const rect = heading.getBoundingClientRect();
+      const contentRect = contentEl.getBoundingClientRect();
+      if (rect.top <= contentRect.top + 100) {
+        activeHeading = heading;
+        break;
+      }
+    }
+    
+    if (activeHeading) {
+      document.querySelectorAll('.content-toc-link').forEach(link => link.classList.remove('active'));
+      const activeHref = `#${activeHeading.id}`;
+      document.querySelectorAll(`.content-toc-link[href="${activeHref}"]`).forEach(link => link.classList.add('active'));
+    }
+  }
+
+  function requestTick() {
+    if (!ticking) {
+      requestAnimationFrame(updateActiveHeading);
+      ticking = true;
+      setTimeout(() => { ticking = false; }, 10);
+    }
+  }
+  contentEl.removeEventListener('scroll', requestTick);
+  contentEl.addEventListener('scroll', requestTick);
+  setTimeout(updateActiveHeading, 100);
+}
+
 async function loadMarkdown(filePath) {
   const contentEl = document.getElementById('content');
   contentEl.innerHTML = `
@@ -83,6 +213,8 @@ async function loadMarkdown(filePath) {
 
     contentEl.innerHTML = marked.parse(md, { breaks: true });
     contentEl.scrollTop = 0;
+    showRightToc();
+    generateTableOfContents();
 
     const codeBlocks = contentEl.querySelectorAll('pre code');
     codeBlocks.forEach(codeEl => {
@@ -143,62 +275,104 @@ async function loadMarkdown(filePath) {
   }
 }
 
-function generateSidebar() {
-  const list = document.getElementById('md-list');
+function generateTopicNavbar() {
+  const navList = document.getElementById('topic-nav-list');
   let totalPosts = 0;
   let totalCategories = SIDEBAR_CONFIG.length;
   
-  list.innerHTML = SIDEBAR_CONFIG.map(section => {
-    const sectionIcon = SECTION_ICONS[section.section] || SECTION_ICONS['default'];
-    const header = `<li class="sidebar-section"><i class="fas ${sectionIcon}"></i>${section.section}</li>`;
-    const links = section.items.map(it => {
-      totalPosts++;
-      const itemIcon = getItemIcon(it.title);
-      return `<li><a href="#" data-md="${it.path}"><i class="${itemIcon}"></i>${it.title}</a></li>`;
-    }).join('');
-    return header + links;
+  navList.innerHTML = SIDEBAR_CONFIG.map(section => {
+    totalPosts += section.items.length;
+    
+    return `
+      <li class="topic-nav-item" data-topic="${section.section}">
+        <span>${section.section}</span>
+      </li>
+    `;
   }).join('');
 
   const totalPostsEl = document.getElementById('total-posts');
   const totalCategoriesEl = document.getElementById('total-categories');
   if (totalPostsEl) totalPostsEl.textContent = totalPosts;
   if (totalCategoriesEl) totalCategoriesEl.textContent = totalCategories;
-
-  list.addEventListener('click', e => {
-    const a = e.target.closest('a[data-md]');
-    if (!a) return;
-    e.preventDefault();
-
-    document.querySelectorAll('#md-list a').forEach(x => x.classList.remove('active'));
-    a.classList.add('active');
-
-    window.location.hash = a.dataset.md;
-    loadMarkdown(a.dataset.md);
+  navList.addEventListener('click', e => {
+    const topicItem = e.target.closest('.topic-nav-item');
+    if (!topicItem) return;
     
+    const topicName = topicItem.dataset.topic;
+    document.querySelectorAll('.topic-nav-item').forEach(item => item.classList.remove('active'));
+    topicItem.classList.add('active');
+    loadSubtopics(topicName); // Load subtopics first
+    loadTopicContent(topicName); // Then load content (which will show sidebar)
+  });
+}
+
+function loadSubtopics(topicName) {
+  const subtopicList = document.getElementById('subtopic-list');
+  const topicData = SIDEBAR_CONFIG.find(section => section.section === topicName);
+  
+  if (!topicData) return;
+  subtopicList.innerHTML = topicData.items.map(item => {
+    return `<li><a href="#" data-md="${item.path}">${item.title}</a></li>`;
+  }).join('');
+  const newSubtopicList = subtopicList.cloneNode(true);
+  subtopicList.parentNode.replaceChild(newSubtopicList, subtopicList);
+  newSubtopicList.addEventListener('click', e => {
+    const linkItem = e.target.closest('a[data-md]');
+    if (!linkItem) return;
+    
+    e.preventDefault();
+    document.querySelectorAll('#subtopic-list a').forEach(a => a.classList.remove('active'));
+    linkItem.classList.add('active');
+    window.location.hash = linkItem.dataset.md;
+    loadMarkdown(linkItem.dataset.md);
     document.getElementById('sidebar').classList.remove('active');
   });
+}
 
-  const search = document.getElementById('search');
-  if (search) {
-    search.addEventListener('input', () => {
-      const q = search.value.trim().toLowerCase();
-      document.querySelectorAll('#md-list li').forEach(li => {
-        const a = li.querySelector('a');
-        if (li.classList.contains('sidebar-section')) {
-          li.style.display = '';
-          return;
-        }
-        const matches = !q || (a && a.textContent.toLowerCase().includes(q));
-        li.style.display = matches ? '' : 'none';
-      });
-    });
-    
-    document.addEventListener('keydown', e => {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-        e.preventDefault();
-        search.focus();
-      }
-    });
+function loadTopicContent(topicName) {
+  const topicData = SIDEBAR_CONFIG.find(section => section.section === topicName);
+  
+  if (!topicData || topicData.items.length === 0) return;
+  const firstTopic = topicData.items[0];
+  window.location.hash = firstTopic.path;
+  loadMarkdown(firstTopic.path);
+  showSidebar();
+  setTimeout(() => {
+    const firstSubtopicLink = document.querySelector(`#subtopic-list a[data-md="${firstTopic.path}"]`);
+    if (firstSubtopicLink) {
+      document.querySelectorAll('#subtopic-list a').forEach(a => a.classList.remove('active'));
+      firstSubtopicLink.classList.add('active');
+    }
+  }, 100);
+}
+
+function showSidebar() {
+  const layout = document.querySelector('.layout');
+  layout.classList.remove('sidebar-hidden');
+  layout.classList.add('sidebar-visible');
+}
+
+function hideSidebar() {
+  const layout = document.querySelector('.layout');
+  layout.classList.remove('sidebar-visible');
+  layout.classList.add('sidebar-hidden');
+}
+
+function showRightToc() {
+  const rightToc = document.getElementById('right-toc');
+  if (rightToc) {
+    if (window.innerWidth > 1200) {
+      rightToc.style.display = 'block';
+    } else {
+      rightToc.style.display = 'none';
+    }
+  }
+}
+
+function hideRightToc() {
+  const rightToc = document.getElementById('right-toc');
+  if (rightToc) {
+    rightToc.style.display = 'none';
   }
 }
 
@@ -230,16 +404,87 @@ function setupMobileMenu() {
   }
 }
 
+function setupSearch() {
+  const search = document.getElementById('search');
+  if (!search) return;
+  
+  search.addEventListener('input', () => {
+    const q = search.value.trim().toLowerCase();
+    document.querySelectorAll('.topic-nav-item').forEach(item => {
+      const matches = !q || item.textContent.toLowerCase().includes(q);
+      item.style.display = matches ? '' : 'none';
+    });
+    document.querySelectorAll('#subtopic-list a').forEach(link => {
+      const matches = !q || link.textContent.toLowerCase().includes(q);
+      link.parentElement.style.display = matches ? '' : 'none';
+    });
+  });
+  
+  document.addEventListener('keydown', e => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      search.focus();
+    }
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-  generateSidebar();
+  generateTopicNavbar();
   setupMobileMenu();
   setupThemeToggle();
+  setupSearch();
+  hideSidebar();
+  hideRightToc();
+  
+  window.addEventListener('resize', () => {
+    const rightToc = document.getElementById('right-toc');
+    if (rightToc) {
+      if (window.innerWidth <= 1200) {
+        rightToc.style.display = 'none';
+      } else if (document.getElementById('content').innerHTML.trim() && 
+                 document.getElementById('content').innerHTML !== `<div class="loading-state"><div class="loading-spinner"></div><p>Loading content...</p></div>`) {
+        rightToc.style.display = 'block';
+      }
+    }
+  });
   
   const hash = window.location.hash.slice(1);
-  let targetLink = document.querySelector(`#md-list a[data-md="${hash}"]`);
-  if (!targetLink) targetLink = document.querySelector('#md-list a[data-md]');
-  if (targetLink) {
-    targetLink.classList.add('active');
-    loadMarkdown(targetLink.dataset.md);
+  if (hash) {
+    let foundTopic = null;
+    let foundArticle = null;
+    
+    SIDEBAR_CONFIG.forEach(section => {
+      const article = section.items.find(item => item.path === hash);
+      if (article) {
+        foundTopic = section.section;
+        foundArticle = article;
+      }
+    });
+    
+    if (foundTopic) {
+      const topicItem = document.querySelector(`[data-topic="${foundTopic}"]`);
+      if (topicItem) {
+        topicItem.classList.add('active');
+        loadSubtopics(foundTopic);
+        showSidebar();
+        setTimeout(() => {
+          const articleLink = document.querySelector(`#subtopic-list a[data-md="${hash}"]`);
+          if (articleLink) {
+            articleLink.classList.add('active');
+          }
+          loadMarkdown(hash);
+        }, 100);
+      }
+    }
+  } else {
+    if (SIDEBAR_CONFIG.length > 0) {
+      const firstTopic = SIDEBAR_CONFIG[0].section;
+      const firstTopicItem = document.querySelector(`[data-topic="${firstTopic}"]`);
+      if (firstTopicItem) {
+        firstTopicItem.classList.add('active');
+        loadSubtopics(firstTopic);
+        loadTopicContent(firstTopic);
+      }
+    }
   }
 });
