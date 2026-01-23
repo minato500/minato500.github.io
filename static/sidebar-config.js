@@ -2,7 +2,7 @@ const SIDEBAR_CONFIG = [
   {
     section: "Introduction",
     items: [
-      { title: "About me :)", path: "posts/topic/intro.md" },
+      { title: "About me", path: "posts/topic/intro.md" },
     ]
   },
   {

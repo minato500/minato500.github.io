@@ -6,6 +6,10 @@
 
 </div>
 
+<div align="center">
+<img src="../../static/images/intro.webp" alt="Minato500 Profile" style="max-width: 100%; height: auto; border-radius: 15px; margin: 20px 0;">
+</div>
+
 I am passionate about **web exploitation**, **red teaming**, and **web security** and here I have been sharing my note.
 
 Over the past couple of years, I have been:
