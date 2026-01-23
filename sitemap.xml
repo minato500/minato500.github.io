@@ -212,6 +212,13 @@
   </url>
 
   <url>
+    <loc>https://minato500.github.io/#posts/bugforge/shady-oaks-financial.md</loc>
+    <lastmod>2026-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://minato500.github.io/#posts/tryhackme/simplectf.md</loc>
     <lastmod>2026-01-23</lastmod>
     <changefreq>monthly</changefreq>

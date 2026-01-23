@@ -63,6 +63,12 @@ const SIDEBAR_CONFIG = [
     ]
   },
   {
+    section: "Bugforge",
+    items: [
+      { title: "Shady Oaks Financial - DAILY", path: "posts/bugforge/shady-oaks-financial.md" }
+    ]
+  },
+  {
     section: "TryHackMe Writeups",
     items: [
       { title: "Simple CTF", path: "posts/tryhackme/simplectf.md" },
