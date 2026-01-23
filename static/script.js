@@ -215,6 +215,7 @@ async function loadMarkdown(filePath) {
     contentEl.scrollTop = 0;
     showRightToc();
     generateTableOfContents();
+    addShareButton(filePath);
 
     const codeBlocks = contentEl.querySelectorAll('pre code');
     codeBlocks.forEach(codeEl => {
@@ -488,3 +489,88 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
+function addShareButton(filePath) {
+  const contentEl = document.getElementById('content');
+  
+  // Remove existing share button
+  const existingShareBtn = contentEl.querySelector('.share-post-btn');
+  if (existingShareBtn) {
+    existingShareBtn.remove();
+  }
+
+  // Add share button to the content area
+  const shareBtn = document.createElement('button');
+  shareBtn.className = 'share-post-btn';
+  shareBtn.innerHTML = 'Share';
+  shareBtn.title = 'Copy link to this post';
+  
+  shareBtn.addEventListener('click', async () => {
+    const currentUrl = window.location.origin + window.location.pathname + '#' + filePath;
+    
+    try {
+      await navigator.clipboard.writeText(currentUrl);
+      shareBtn.innerHTML = 'Copied!';
+      shareBtn.classList.add('success');
+      shareBtn.title = 'Link copied!';
+      setTimeout(() => {
+        shareBtn.innerHTML = 'Share';
+        shareBtn.classList.remove('success');
+        shareBtn.title = 'Copy link to this post';
+      }, 2000);
+    } catch (err) {
+      // Fallback for browsers that don't support clipboard API
+      fallbackCopyTextToClipboard(currentUrl, shareBtn);
+    }
+  });
+  
+  contentEl.appendChild(shareBtn);
+}
+
+function fallbackCopyTextToClipboard(text, button) {
+  const textArea = document.createElement('textarea');
+  textArea.value = text;
+  textArea.style.position = 'fixed';
+  textArea.style.top = '0';
+  textArea.style.left = '0';
+  textArea.style.width = '2em';
+  textArea.style.height = '2em';
+  textArea.style.padding = '0';
+  textArea.style.border = 'none';
+  textArea.style.outline = 'none';
+  textArea.style.boxShadow = 'none';
+  textArea.style.background = 'transparent';
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+  
+  try {
+    const successful = document.execCommand('copy');
+    if (successful) {
+      button.innerHTML = 'Copied!';
+      button.classList.add('success');
+      button.title = 'Link copied!';
+      setTimeout(() => {
+        button.innerHTML = 'Share';
+        button.classList.remove('success');
+        button.title = 'Copy link to this post';
+      }, 2000);
+    } else {
+      button.innerHTML = 'Failed';
+      button.title = 'Copy failed';
+      setTimeout(() => {
+        button.innerHTML = 'Share';
+        button.title = 'Copy link to this post';
+      }, 2000);
+    }
+  } catch (err) {
+    button.innerHTML = 'Failed';
+    button.title = 'Copy failed';
+    setTimeout(() => {
+      button.innerHTML = 'Share';
+      button.title = 'Copy link to this post';
+    }, 2000);
+  }
+  
+  document.body.removeChild(textArea);
+}

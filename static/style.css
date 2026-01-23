@@ -1355,6 +1355,60 @@ pre:hover .copy-btn {
   transform: scale(0.95);
 }
 
+/* Share post button */
+.share-post-btn {
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(10px);
+  z-index: 10;
+  min-width: 60px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.share-post-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.share-post-btn:active {
+  transform: translateY(0);
+}
+
+.share-post-btn.success {
+  background: linear-gradient(135deg, var(--accent-green), #059669);
+}
+
+/* Position content container relatively for absolute positioning */
+.content {
+  position: relative;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .share-post-btn {
+    top: 8px;
+    right: 8px;
+    padding: 6px 12px;
+    font-size: 11px;
+    min-width: 50px;
+  }
+}
+
 /* Light mode code block */
 [data-theme="light"] pre {
   background: #f6f8fa;
@@ -1377,6 +1431,14 @@ pre:hover .copy-btn {
   color: rgba(0, 0, 0, 0.6);
 }
 
+[data-theme="light"] .share-post-btn {
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+}
+
+[data-theme="light"] .share-post-btn:hover {
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.2);
+}
+
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) pre {
     background: #f6f8fa;
@@ -1397,6 +1459,14 @@ pre:hover .copy-btn {
   
   :root:not([data-theme="dark"]) .copy-btn {
     color: rgba(0, 0, 0, 0.6);
+  }
+  
+  :root:not([data-theme="dark"]) .share-post-btn {
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+  }
+
+  :root:not([data-theme="dark"]) .share-post-btn:hover {
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.2);
   }
 }
 
