@@ -1257,14 +1257,12 @@ body {
 pre {
   position: relative;
   background: #0d1117;
-  border: 1px solid rgba(99, 102, 241, 0.2);
+  border: 1px solid #30363d;
   padding: 0;
   margin: 28px 0;
-  border-radius: var(--radius-lg);
+  border-radius: 6px;
   overflow: hidden;
-  box-shadow: 
-    0 4px 24px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(99, 102, 241, 0.1);
+  box-shadow: none;
 }
 
 pre .code-header {
@@ -1272,8 +1270,8 @@ pre .code-header {
   align-items: center;
   justify-content: space-between;
   padding: 10px 16px;
-  background: rgba(99, 102, 241, 0.08);
-  border-bottom: 1px solid rgba(99, 102, 241, 0.15);
+  background: #161b22;
+  border-bottom: 1px solid #30363d;
 }
 
 pre .window-controls {
