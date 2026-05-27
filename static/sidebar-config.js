@@ -32,7 +32,7 @@ const SIDEBAR_CONFIG = [
     items: [
       { title: "Web Request and Web Response", path: "posts/websecurity/request-and-response.md" },
       { title: "Frameworks and Standards for Web Security", path: "posts/websecurity/frameworks-and-standards.md" },
-      { title: "Default Security Measures", path: "posts/websecurity/security-measures.md" }
+      { title: "Basic Security Measures", path: "posts/websecurity/security-measures.md" }
     ]
   },
   {
