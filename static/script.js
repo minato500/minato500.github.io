@@ -502,7 +502,7 @@ function addShareButton(filePath) {
   // Add share button to the content area
   const shareBtn = document.createElement('button');
   shareBtn.className = 'share-post-btn';
-  shareBtn.innerHTML = 'Share';
+  shareBtn.innerHTML = '<i class="fas fa-link"></i>';
   shareBtn.title = 'Copy link to this post';
   
   shareBtn.addEventListener('click', async () => {
@@ -510,11 +510,11 @@ function addShareButton(filePath) {
     
     try {
       await navigator.clipboard.writeText(currentUrl);
-      shareBtn.innerHTML = 'Copied!';
+      shareBtn.innerHTML = '<i class="fas fa-check"></i>';
       shareBtn.classList.add('success');
       shareBtn.title = 'Link copied!';
       setTimeout(() => {
-        shareBtn.innerHTML = 'Share';
+        shareBtn.innerHTML = '<i class="fas fa-link"></i>';
         shareBtn.classList.remove('success');
         shareBtn.title = 'Copy link to this post';
       }, 2000);
@@ -547,27 +547,27 @@ function fallbackCopyTextToClipboard(text, button) {
   try {
     const successful = document.execCommand('copy');
     if (successful) {
-      button.innerHTML = 'Copied!';
+      button.innerHTML = '<i class="fas fa-check"></i>';
       button.classList.add('success');
       button.title = 'Link copied!';
       setTimeout(() => {
-        button.innerHTML = 'Share';
+        button.innerHTML = '<i class="fas fa-link"></i>';
         button.classList.remove('success');
         button.title = 'Copy link to this post';
       }, 2000);
     } else {
-      button.innerHTML = 'Failed';
+      button.innerHTML = '<i class="fas fa-times"></i>';
       button.title = 'Copy failed';
       setTimeout(() => {
-        button.innerHTML = 'Share';
+        button.innerHTML = '<i class="fas fa-link"></i>';
         button.title = 'Copy link to this post';
       }, 2000);
     }
   } catch (err) {
-    button.innerHTML = 'Failed';
+    button.innerHTML = '<i class="fas fa-times"></i>';
     button.title = 'Copy failed';
     setTimeout(() => {
-      button.innerHTML = 'Share';
+      button.innerHTML = '<i class="fas fa-link"></i>';
       button.title = 'Copy link to this post';
     }, 2000);
   }

@@ -23,19 +23,6 @@ Over the past couple of years, I have been:
 - Become a top-tier **penetration tester**
 - Share writeups and resources with the infosec community
 
-## Certifications & Training
-
-<div>
-
-- **Practical Ethical Hacking** — TCM Security
-- **Practical Web Hacking** — TCM Security  
-- **Practical Bug Bounty** — TCM Security
-- **Practical API Hacking** — TCM Security
-- **Complete Linux & Windows Privilege Escalation** — Coursera
-
-</div>
-
-
 ## 🤝 Let's Connect
 
 <div align="center">
