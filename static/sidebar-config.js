@@ -34,7 +34,8 @@ const SIDEBAR_CONFIG = [
       { title: "Frameworks and Standards for Web Security", path: "posts/websecurity/frameworks-and-standards.md" },
       { title: "Basic Security Measures", path: "posts/websecurity/security-measures.md" },
       { title: "Web Proxies for web exploitation", path: "posts/websecurity/web-proxies.md" },
-      { title: "Access Control Vulnerabilities", path: "posts/websecurity/access-control.md" }
+      { title: "Access Control Vulnerabilities", path: "posts/websecurity/access-control.md" },
+      { title: "Authentication Vulnerabilities", path: "posts/websecurity/authentication-vulnerabilities.md" }
     ]
   },
   {
