@@ -60,7 +60,8 @@ const SIDEBAR_CONFIG = [
   {
     section: "CVE",
     items: [
-      { title: "CVE-2026-27460", path: "posts/cve/cve-2026-27460.md" }
+      { title: "CVE-2026-27460", path: "posts/cve/cve-2026-27460.md" },
+      { title: "CVE-2026-33756", path: "posts/cve/cve-2026-33756.md" }
     ]
   },
   {
