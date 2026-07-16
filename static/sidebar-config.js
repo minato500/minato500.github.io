@@ -58,6 +58,12 @@ const SIDEBAR_CONFIG = [
     ]
   },
   {
+    section: "CVE",
+    items: [
+      { title: "CVE-2026-27460", path: "posts/cve/cve-2026-27460.md" }
+    ]
+  },
+  {
     section: "CTF",
     items: [
       { title: "EnigmaCTF 2026", path: "posts/ctf/enigma-ctf-2026.md" },
